@@ -1,4 +1,4 @@
-• STUDENT RESULT DASHBOARD
+#STUDENT RESULT DASHBOARD:
 A modern and responsive web-based Student Result Dashboard built using HTML, CSS and JavaScript.
 
 1. LIVE DEMO
