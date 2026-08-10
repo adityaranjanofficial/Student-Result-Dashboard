@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Result Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">EduResult</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#result">Result</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main id="home">
+
+    <section class="hero">
+      <div>
+        <p class="tag">STUDENT PORTAL</p>
+        <h1>Student Result Dashboard</h1>
+        <p>View academic performance, marks and overall results in a simple dashboard.</p>
+        <a href="#result" class="btn">View Result</a>
+      </div>
+    </section>
+
+    <section class="search-box">
+      <h2>Check Your Result</h2>
+      <p>Enter your roll number to view the result.</p>
+
+      <div class="search">
+        <input type="text" id="rollNumber" placeholder="Enter Roll Number">
+        <button onclick="showResult()">Search</button>
+      </div>
+
+      <p id="message"></p>
+    </section>
+
+    <section id="result" class="result-card">
+
+      <div class="student">
+        <div class="avatar">AR</div>
+        <div>
+          <h2 id="studentName">Aditya Ranjan</h2>
+          <p>Roll No: <span id="studentRoll">VO2026</span></p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div>
+          <span>Percentage</span>
+          <strong id="percentage">86%</strong>
+        </div>
+
+        <div>
+          <span>Grade</span>
+          <strong id="grade">A</strong>
+        </div>
+
+        <div>
+          <span>Status</span>
+          <strong class="pass">PASS</strong>
+        </div>
+      </div>
+
+      <h3>Subject-wise Marks</h3>
+
+      <div class="subjects">
+        <div class="subject">
+          <span>Mathematics</span>
+          <strong>92 / 100</strong>
+        </div>
+
+        <div class="subject">
+          <span>Computer Science</span>
+          <strong>88 / 100</strong>
+        </div>
+
+        <div class="subject">
+          <span>English</span>
+          <strong>82 / 100</strong>
+        </div>
+
+        <div class="subject">
+          <span>Science</span>
+          <strong>85 / 100</strong>
+        </div>
+
+        <div class="subject">
+          <span>Social Science</span>
+          <strong>83 / 100</strong>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="about" class="about">
+      <h2>About This Dashboard</h2>
+      <p>
+        Student Result Dashboard is a responsive web application created
+        using HTML, CSS and JavaScript for displaying academic results.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Student Result Dashboard | Developed with HTML, CSS & JavaScript</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
