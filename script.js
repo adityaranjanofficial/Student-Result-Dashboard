@@ -2,39 +2,249 @@ const students = {
   VO2026: {
     name: "Aditya Ranjan",
     initials: "AR",
-    percentage: "86%",
-    grade: "A",
-    status: "PASS",
-    math: "92 / 100",
-    computer: "88 / 100",
-    english: "82 / 100",
-    science: "85 / 100",
-    social: "83 / 100"
+    marks: {
+      math: 92,
+      computer: 88,
+      english: 82,
+      science: 85,
+      social: 83
+    }
   },
 
   VO2027: {
     name: "Prashant Kumar",
     initials: "RK",
-    percentage: "78%",
-    grade: "B+",
-    status: "PASS",
-    math: "80 / 100",
-    computer: "82 / 100",
-    english: "75 / 100",
-    science: "77 / 100",
-    social: "76 / 100"
+    marks: {
+      math: 80,
+      computer: 82,
+      english: 75,
+      science: 77,
+      social: 76
+    }
   },
 
   VO2028: {
     name: "Rahul Kumar",
     initials: "AK",
-    percentage: "91%",
-    grade: "A+",
-    status: "PASS",
-    math: "95 / 100",
-    computer: "94 / 100",
-    english: "88 / 100",
-    science: "90 / 100",
+    marks: {
+      math: 95,
+      computer: 94,
+      english: 88,
+      science: 90,
+      social: 89
+    }
+  }
+};
+
+
+function calculateResult(marks) {
+
+  const total =
+    marks.math +
+    marks.computer +
+    marks.english +
+    marks.science +
+    marks.social;
+
+  const percentage = total / 5;
+
+  let grade;
+
+  if (percentage >= 90) {
+    grade = "A+";
+  } else if (percentage >= 80) {
+    grade = "A";
+  } else if (percentage >= 70) {
+    grade = "B+";
+  } else if (percentage >= 60) {
+    grade = "B";
+  } else if (percentage >= 50) {
+    grade = "C";
+  } else {
+    grade = "F";
+  }
+
+  const passed = Object.values(marks).every(mark => mark >= 33);
+
+  return {
+    total,
+    percentage,
+    grade,
+    status: passed ? "PASS" : "FAIL"
+  };
+}
+
+
+function showResult() {
+
+  const input = document.getElementById("rollNumber");
+
+  const rollNumber =
+    input.value.trim().toUpperCase();
+
+  const message =
+    document.getElementById("message");
+
+
+  if (rollNumber === "") {
+
+    message.textContent =
+      "Please enter your roll number.";
+
+    message.style.color = "#dc2626";
+
+    return;
+  }
+
+
+  const student =
+    students[rollNumber];
+
+
+  if (!student) {
+
+    message.textContent =
+      "No result found for this roll number.";
+
+    message.style.color = "#dc2626";
+
+    document.getElementById("studentName").textContent =
+      "Result Not Found";
+
+    document.getElementById("studentRoll").textContent =
+      "---";
+
+    return;
+  }
+
+
+  const result =
+    calculateResult(student.marks);
+
+
+  /* Student Information */
+
+  document.getElementById("studentName").textContent =
+    student.name;
+
+  document.getElementById("studentRoll").textContent =
+    rollNumber;
+
+
+  /* Subject Marks */
+
+  document.getElementById("math").textContent =
+    student.marks.math;
+
+  document.getElementById("computer").textContent =
+    student.marks.computer;
+
+  document.getElementById("english").textContent =
+    student.marks.english;
+
+  document.getElementById("science").textContent =
+    student.marks.science;
+
+  document.getElementById("social").textContent =
+    student.marks.social;
+
+
+  /* Total */
+
+  document.getElementById("obtainedMarks").textContent =
+    result.total;
+
+  document.getElementById("totalMarks").textContent =
+    result.total + " / 500";
+
+
+  /* Percentage */
+
+  document.getElementById("percentage").textContent =
+    result.percentage.toFixed(2) + "%";
+
+
+  /* Grade */
+
+  document.getElementById("grade").textContent =
+    result.grade;
+
+
+  /* Status */
+
+  document.getElementById("status").textContent =
+    result.status;
+
+  document.getElementById("finalStatus").textContent =
+    result.status;
+
+
+  if (result.status === "PASS") {
+
+    document.getElementById("status").className =
+      "pass";
+
+    document.getElementById("finalStatus").className =
+      "pass";
+
+  } else {
+
+    document.getElementById("status").className =
+      "fail";
+
+    document.getElementById("finalStatus").className =
+      "fail";
+  }
+
+
+  message.textContent =
+    "Result found successfully!";
+
+  message.style.color =
+    "#16a34a";
+
+
+  document.getElementById("result")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+}
+
+
+/* Enter key support */
+
+document
+  .getElementById("rollNumber")
+  .addEventListener("keypress", function(event) {
+
+    if (event.key === "Enter") {
+      showResult();
+    }
+
+  });
+
+
+/* Print / Save as PDF */
+
+function printResult() {
+
+  const name =
+    document.getElementById("studentName").textContent;
+
+  if (
+    name === "Search a Result" ||
+    name === "Result Not Found"
+  ) {
+
+    alert(
+      "Please search a valid roll number first."
+    );
+
+    return;
+  }
+
+  window.print();
+}    science: "90 / 100",
     social: "89 / 100"
   }
 };
