@@ -31,7 +31,9 @@ Use the following roll number to test the result search:
 `VO2026`
 
 6. SAMPLE RESULT:
-
+for Aditya - Roll - VO2026
+for Prashant - Roll - VO2027
+for Rahul - Roll - VO2028
 | Subject | Marks |
 |---|---:|
 | Mathematics | 92 / 100 |
