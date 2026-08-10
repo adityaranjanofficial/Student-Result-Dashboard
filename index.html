@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduResult | Student Result Dashboard</title>
+  <title>EduResult | Academic Result Statement</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+<header class="site-header">
   <div class="logo">EduResult</div>
 
   <nav>
@@ -19,57 +19,186 @@
   </nav>
 </header>
 
+
 <main id="home">
 
   <section class="hero">
     <div>
       <p class="tag">STUDENT PORTAL</p>
+
       <h1>Student Result Dashboard</h1>
 
       <p>
-        Check student academic performance, marks,
-        grade and overall result using roll number.
+        Check academic performance, marks, grade and
+        result using your roll number.
       </p>
 
-      <a href="#result" class="btn">Check Result</a>
+      <a href="#search" class="btn">Check Result</a>
     </div>
   </section>
 
-  <section class="search-box">
+
+  <!-- SEARCH -->
+
+  <section id="search" class="search-box">
+
     <h2>Check Your Result</h2>
 
-    <p>Enter your roll number to view the result.</p>
+    <p>Enter your roll number to view your academic result.</p>
 
     <div class="search">
+
       <input
         type="text"
         id="rollNumber"
         placeholder="Enter Roll Number"
+        autocomplete="off"
       >
 
       <button onclick="showResult()">Search</button>
+
     </div>
 
     <p id="message"></p>
+
   </section>
 
 
+  <!-- RESULT -->
+
   <section id="result" class="result-card">
 
-    <div class="student">
-      <div class="avatar" id="avatar">AR</div>
+    <div class="result-header">
 
       <div>
-        <h2 id="studentName">Search a Result</h2>
-        <p>
-          Roll No:
-          <span id="studentRoll">---</span>
-        </p>
+        <h2>EDURESULT</h2>
+        <p>ACADEMIC RESULT STATEMENT</p>
+        <small>Academic Session 2026</small>
       </div>
+
+      <div class="result-badge">
+        RESULT
+      </div>
+
     </div>
 
 
-    <div class="stats">
+    <!-- STUDENT INFORMATION -->
+
+    <div class="student-information">
+
+      <h3>Student Information</h3>
+
+      <div class="student-grid">
+
+        <div>
+          <span>Student Name</span>
+          <strong id="studentName">Search a Result</strong>
+        </div>
+
+        <div>
+          <span>Roll Number</span>
+          <strong id="studentRoll">---</strong>
+        </div>
+
+        <div>
+          <span>Academic Session</span>
+          <strong>2026</strong>
+        </div>
+
+        <div>
+          <span>Result Status</span>
+          <strong id="status" class="pass">--</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- MARKS TABLE -->
+
+    <div class="marks-section">
+
+      <h3>Statement of Marks</h3>
+
+      <div class="table-wrapper">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>S.No.</th>
+              <th>Subject</th>
+              <th>Maximum Marks</th>
+              <th>Obtained Marks</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>1</td>
+              <td>Mathematics</td>
+              <td>100</td>
+              <td id="math">--</td>
+            </tr>
+
+            <tr>
+              <td>2</td>
+              <td>Computer Science</td>
+              <td>100</td>
+              <td id="computer">--</td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+              <td>English</td>
+              <td>100</td>
+              <td id="english">--</td>
+            </tr>
+
+            <tr>
+              <td>4</td>
+              <td>Science</td>
+              <td>100</td>
+              <td id="science">--</td>
+            </tr>
+
+            <tr>
+              <td>5</td>
+              <td>Social Science</td>
+              <td>100</td>
+              <td id="social">--</td>
+            </tr>
+
+          </tbody>
+
+          <tfoot>
+
+            <tr>
+              <th colspan="2">TOTAL</th>
+              <th>500</th>
+              <th id="obtainedMarks">--</th>
+            </tr>
+
+          </tfoot>
+
+        </table>
+
+      </div>
+
+    </div>
+
+
+    <!-- RESULT SUMMARY -->
+
+    <div class="summary">
+
+      <div>
+        <span>Obtained Marks</span>
+        <strong id="totalMarks">-- / 500</strong>
+      </div>
 
       <div>
         <span>Percentage</span>
@@ -82,49 +211,45 @@
       </div>
 
       <div>
-        <span>Status</span>
-        <strong id="status">--</strong>
+        <span>Final Result</span>
+        <strong id="finalStatus">--</strong>
       </div>
 
     </div>
 
 
-    <h3>Subject-wise Marks</h3>
+    <!-- FOOTER -->
 
-    <div class="subjects">
+    <div class="marksheet-footer">
 
-      <div class="subject">
-        <span>Mathematics</span>
-        <strong id="math">--</strong>
+      <div>
+        <p>Date of Declaration</p>
+        <strong>11 August 2026</strong>
       </div>
 
-      <div class="subject">
-        <span>Computer Science</span>
-        <strong id="computer">--</strong>
-      </div>
-
-      <div class="subject">
-        <span>English</span>
-        <strong id="english">--</strong>
-      </div>
-
-      <div class="subject">
-        <span>Science</span>
-        <strong id="science">--</strong>
-      </div>
-
-      <div class="subject">
-        <span>Social Science</span>
-        <strong id="social">--</strong>
+      <div class="signature">
+        <div class="signature-line"></div>
+        <p>Authorized Signature</p>
       </div>
 
     </div>
 
+
+    <div class="verification-note">
+
+      <strong>Note:</strong>
+      This academic result statement is generated electronically
+      through the EduResult Student Result Dashboard.
+
+    </div>
+
+
+    <!-- ACTION BUTTONS -->
 
     <div class="result-actions">
 
-      <button onclick="window.print()" class="print-btn">
-        Print Result
+      <button onclick="printResult()" class="print-btn">
+        🖨️ Download / Print Marksheet
       </button>
 
     </div>
@@ -132,15 +257,17 @@
   </section>
 
 
+  <!-- ABOUT -->
+
   <section id="about" class="about">
 
     <h2>About EduResult</h2>
 
     <p>
       EduResult is a responsive student result dashboard
-      created using HTML, CSS and JavaScript.
-      It provides a simple interface for checking
-      academic performance using a roll number.
+      developed using HTML, CSS and JavaScript. It provides
+      a simple digital interface for checking academic results
+      using a roll number.
     </p>
 
   </section>
@@ -149,13 +276,15 @@
 
 
 <footer>
+
   <p>
     © 2026 EduResult | Student Result Dashboard
   </p>
+
 </footer>
 
 
-<script src="script.js?v=2"></script>
+<script src="script.js?v=3"></script>
 
 </body>
 </html>
