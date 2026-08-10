@@ -13,7 +13,7 @@ const students = {
   },
 
   VO2027: {
-    name: "Rahul Kumar",
+    name: "Prashant Kumar",
     initials: "RK",
     percentage: "78%",
     grade: "B+",
@@ -26,7 +26,7 @@ const students = {
   },
 
   VO2028: {
-    name: "Aman Kumar",
+    name: "Rahul Kumar",
     initials: "AK",
     percentage: "91%",
     grade: "A+",
