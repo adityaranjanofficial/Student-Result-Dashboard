@@ -57,35 +57,19 @@ const students = {
 
 };
 
-function showResult() {
 
-  const roll = document
-    .getElementById("rollNumber")
-    .value
-    .trim()
-    .toUpperCase();
-
-  const message = document.getElementById("message");
-  const student = students[roll];
-
-  if (!student) {
-    message.textContent = "No result found for this roll number.";
-    message.style.color = "#dc2626";
-    return;
-  }
-
-  const m = student.marks;
+function calculateResult(marks) {
 
   const total =
-    m.math +
-    m.computer +
-    m.english +
-    m.science +
-    m.social;
+    marks.math +
+    marks.computer +
+    marks.english +
+    marks.science +
+    marks.social;
 
   const percentage = total / 5;
 
-  let grade = "F";
+  let grade;
 
   if (percentage >= 90) {
     grade = "A+";
@@ -97,58 +81,117 @@ function showResult() {
     grade = "B";
   } else if (percentage >= 50) {
     grade = "C";
+  } else {
+    grade = "F";
   }
 
-  const status =
-    Object.values(m).every(mark => mark >= 33)
-      ? "PASS"
-      : "FAIL";
+  const passed =
+    Object.values(marks).every(mark => mark >= 33);
+
+  return {
+    total,
+    percentage,
+    grade,
+    status: passed ? "PASS" : "FAIL"
+  };
+}
+
+
+function showResult() {
+
+  const rollNumber =
+    document.getElementById("rollNumber")
+      .value
+      .trim()
+      .toUpperCase();
+
+  const message =
+    document.getElementById("message");
+
+  const student =
+    students[rollNumber];
+
+
+  if (!student) {
+
+    message.textContent =
+      "No result found for this roll number.";
+
+    message.style.color = "#dc2626";
+
+    return;
+  }
+
+
+  const result =
+    calculateResult(student.marks);
+
 
   document.getElementById("studentName").textContent =
     student.name;
 
   document.getElementById("studentRoll").textContent =
-    roll;
+    rollNumber;
+
 
   document.getElementById("math").textContent =
-    m.math;
+    student.marks.math;
 
   document.getElementById("computer").textContent =
-    m.computer;
+    student.marks.computer;
 
   document.getElementById("english").textContent =
-    m.english;
+    student.marks.english;
 
   document.getElementById("science").textContent =
-    m.science;
+    student.marks.science;
 
   document.getElementById("social").textContent =
-    m.social;
+    student.marks.social;
+
 
   document.getElementById("obtainedMarks").textContent =
-    total;
+    result.total;
 
   document.getElementById("totalMarks").textContent =
-    total + " / 500";
+    result.total + " / 500";
 
   document.getElementById("percentage").textContent =
-    percentage.toFixed(2) + "%";
+    result.percentage.toFixed(2) + "%";
 
   document.getElementById("grade").textContent =
-    grade;
+    result.grade;
 
   document.getElementById("status").textContent =
-    status;
+    result.status;
 
   document.getElementById("finalStatus").textContent =
-    status;
+    result.status;
+
 
   message.textContent =
     "Result found successfully!";
 
   message.style.color =
     "#16a34a";
+
+
+  document.getElementById("result")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
 }
+
+
+document
+  .getElementById("rollNumber")
+  .addEventListener("keypress", function(event) {
+
+    if (event.key === "Enter") {
+      showResult();
+    }
+
+  });
 
 
 function printResult() {
@@ -156,8 +199,15 @@ function printResult() {
   const name =
     document.getElementById("studentName").textContent;
 
-  if (name === "Search a Result") {
-    alert("Please search a valid roll number first.");
+  if (
+    name === "Search a Result" ||
+    name === "Result Not Found"
+  ) {
+
+    alert(
+      "Please search a valid roll number first."
+    );
+
     return;
   }
 
