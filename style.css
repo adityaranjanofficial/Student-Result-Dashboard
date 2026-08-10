@@ -404,12 +404,13 @@ footer {
 @media print {
 
   @page {
-    size: A4;
-    margin: 12mm;
+    size: A4 portrait;
+    margin: 6mm;
   }
 
   body {
-    background: #ffffff;
+    background: #fff;
+    font-size: 10px;
   }
 
   .site-header,
@@ -423,35 +424,78 @@ footer {
   }
 
   .result-card {
+    display: block !important;
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: 15px;
+    padding: 12px;
     border: 2px solid #172033;
     border-radius: 0;
     box-shadow: none;
   }
 
   .result-header {
-    border-bottom: 3px solid #172033;
+    padding-bottom: 10px;
+  }
+
+  .result-header h2 {
+    font-size: 22px;
   }
 
   .result-header p {
-    color: #172033;
+    font-size: 12px;
   }
 
-  .result-badge {
-    border-color: #172033;
-    color: #172033;
+  .student-information,
+  .marks-section {
+    margin-top: 12px;
+  }
+
+  .student-information h3,
+  .marks-section h3 {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .student-grid div {
+    padding: 7px 10px;
+  }
+
+  th,
+  td {
+    padding: 6px 7px;
+    font-size: 10px;
+  }
+
+  .summary {
+    margin-top: 12px;
+    gap: 6px;
   }
 
   .summary div {
-    background: #ffffff;
+    padding: 8px;
+  }
+
+  .summary strong {
+    font-size: 14px;
+  }
+
+  .marksheet-footer {
+    margin-top: 25px;
   }
 
   .verification-note {
-    color: #333333;
-    background: #ffffff;
+    margin-top: 12px;
+    padding: 7px 10px;
+    font-size: 9px;
+  }
+
+  .result-card,
+  table,
+  .student-grid,
+  .summary {
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
 
