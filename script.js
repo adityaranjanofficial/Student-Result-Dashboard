@@ -1,4 +1,5 @@
 const students = {
+
   VO2026: {
     name: "Aditya Ranjan",
     marks: {
@@ -8,7 +9,52 @@ const students = {
       science: 85,
       social: 83
     }
+  },
+
+  VO2027: {
+    name: "Rahul Kumar",
+    marks: {
+      math: 84,
+      computer: 86,
+      english: 78,
+      science: 81,
+      social: 80
+    }
+  },
+
+  VO2028: {
+    name: "Priya Kumari",
+    marks: {
+      math: 91,
+      computer: 89,
+      english: 87,
+      science: 92,
+      social: 88
+    }
+  },
+
+  VO2029: {
+    name: "Aman Kumar",
+    marks: {
+      math: 76,
+      computer: 82,
+      english: 74,
+      science: 79,
+      social: 81
+    }
+  },
+
+  VO2030: {
+    name: "Neha Kumari",
+    marks: {
+      math: 88,
+      computer: 91,
+      english: 85,
+      science: 87,
+      social: 90
+    }
   }
+
 };
 
 function showResult() {
